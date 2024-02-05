@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>계산기</title>
+</head>
+<body>
+	<h1>계산할 값을 입력하세요</h1>
+	
+	<!-- 
+		▣ 같은의미 다른표현
+			1. 다이나믹웹프로젝트 = 웹어플리케이션 = 컨텍스트(context)
+			2. 톰캣 = 톰캣컨테이너 = 서블릿컨테이너 = WAS(Web Application Server)
+	
+		html 페이지에서 아래처럼 action="/cal" 이라고 작성했을때 경로의 의미
+		
+		http://localhost:포트번호/cal  -> 컨텍스트 미포함 하므로 원하는 결과가 아니다. 
+		
+		따라서 다음과 같이 컨텍스트를 포함해서 작성하거나 ./를 사용해서 작성해야 한다.
+		
+			<form action="/jsp_basic/cal" method="post">
+			<form action="./cal" method="post">
+			<form action="cal" method="post">
+	 -->
+	<form action="./cal" method="post">
+		<fieldset>
+			<legend>계산기</legend>
+			
+			<ul>
+				<li>
+					<!-- 배열로 받을 계획이기 때문에 name 값이 같다. -->
+					<input type="number" name="num" id="num1" />
+					<input type="number" name="num" id="num2" />
+				</li>
+				
+				<li>
+					<button name="op" value="plus">덧셈</button>
+					<button name="op" value="minus">뺄셈</button>
+				</li>
+				
+
+				
+				<li>
+					<button name="op" value="mul">곱셈</button>
+					<button name="op" value="div">나눔</button>				
+				</li>
+			</ul>
+		</fieldset>
+	</form>
+</body>
+</html>

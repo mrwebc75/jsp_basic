@@ -12,7 +12,9 @@
 	
 	//형변환시 오류방지코드
 	String birth_ = request.getParameter("bith");
-	if(birth_!=null&&birth_!=""){
+	
+	//.isEmpty()로 null과 "" 빈문자열 검사를 한번에 할 수 있다.
+	if(birth_.isEmpty()){
 	  birth = Integer.parseInt(birth_);
 	}
 	

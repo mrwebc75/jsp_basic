@@ -1,3 +1,5 @@
+<%@ page import="java.util.HashMap"%>
+<%@ page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -55,26 +57,55 @@
 			request.setAttribute("a", 10);
 			request.setAttribute("b", 20);
 			
-			request.
+			request.setAttribute("data", null);
+			request.setAttribute("name","");
 		%>
 		<li>${a}, ${b}</li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
+
+		<!-- 
+			empty seq 의미
+			
+			1. 텅빈 값인지 검사하는 empty 연산자는 true, false 리턴
+			2. seq == null || seq.equals("") 와 같은 효과
+			3. 자바의 str.isEmpty() 와 같은 효과
+		 -->
+		<li>${empty data ? "null" : data}</li>		
+		<li>${empty name ? "빈문자열" : name}</li>
 	</ul>
+	
+	<hr>
+	
+	<%
+		String[] member = {"고길동", "둘리", "또치", "도우너", "마이콜", "희동이"};
+		request.setAttribute("member", member);
+	%>
+	
+	<h2>배열데이터</h2>
+	<ol>
+		<li>${member[0]}</li>
+		<li>${member[1]}</li>
+		<li>${member[2]}</li>
+		<li>${member[3]}</li>
+		<li>${member[4]}</li>
+	</ol>
+	
+	<hr>
+	
+	<%
+		Map<String, String> friends = new HashMap<String, String>();
+		friends.put("duly","둘리");
+		friends.put("hani", "하니");
+		friends.put("micol", "마이콜");
+		
+		request.setAttribute("friends", friends);
+	%>		
+
+	<h2>맵데이터</h2>
+	<ol>
+		<li>${friends["duly"]}</li>
+		<li>${friends.get("hani")}</li>
+		<li>${friends["micol"]}</li>
+	</ol>
 </body>
 </html>
 
